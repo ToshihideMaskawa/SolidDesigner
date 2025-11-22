@@ -4,8 +4,8 @@
   <Include href="SplashScreenConfig.xml"/>
   <!-- titlebar config file -->
   <Include href="TitleBarConfig.xml"/>
-  <!-- toolbar config file -->
-  <Include href="ToolBarConfig.xml"/>
+  <!-- functiona area config file -->
+  <Include href="FunctionAreaConfig.xml"/>
   
   <Theme darkMode="true">
     <Palette base="#121212" text="#E0E0E0" accent="#FF9E00"/>
