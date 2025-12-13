@@ -1,0 +1,4 @@
+﻿#include "SolidDesignerCommand.h"
+
+// {62CF3398-747F-4840-97D4-2941EDA0B295}
+const Guid soliddesignercommand::MODULE_ID = { 0x62cf3398, 0x747f, 0x4840, { 0x97, 0xd4, 0x29, 0x41, 0xed, 0xa0, 0xb2, 0x95 } };

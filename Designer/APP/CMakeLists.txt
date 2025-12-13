@@ -26,52 +26,7 @@ FILE(GLOB RESOURCE_UI_FILES  "${CMAKE_CURRENT_SOURCE_DIR}/*.ui")
 FILE(GLOB RESOURCE_PRO_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.pro")
 FILE(GLOB RESOURCE_XML_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.xml")
 
-#-----------------------------------------------------------------------------
-# 软件的文件夹分层架构为UI,DB,INTERACTION三个层次；
-# DB层不能引用下层的头文件，例如UI和交互层
-# 哪些属于DB层：目前包含数学库，渲染核心组件，将来的业务层的DB层需要区别处理；
-# 哪些属于UI层，目前把QT框架相关的代码和模块都放进来。
-# 哪些属于交互层，具体来说就是设计命令的具体实现部分；
-# 需要讨论的问题：命令管理器放在哪个层？
-#-----------------------------------------------------------------------------
-#-----------------------------------------------------------------------------
-# 定义多个筛选器管理物理层次
-# 筛选器规则: 第一个参数是筛选器的名称，第二个参数是标识符，第三个参数是筛选器下面的文件路径
-# TMD浪费了一天的时间弄这个分类
-#-----------------------------------------------------------------------------
 
-# 添加筛选器--common
-FILE(GLOB COMMONS "${CMAKE_CURRENT_SOURCE_DIR}/DB/common/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/DB/common/*.h" "${CMAKE_CURRENT_SOURCE_DIR}/DB/common/*.hpp")
-source_group(DB\\COMMONS FILES ${COMMONS})
-
-# 筛选器--maths
-FILE(GLOB MATHS "${CMAKE_CURRENT_SOURCE_DIR}/DB/maths/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/DB/maths/*.h" "${CMAKE_CURRENT_SOURCE_DIR}/DB/maths/*.hpp")
-source_group(DB\\MATHS FILES ${MATHS})
-
-# 筛选器--shaders
-FILE(GLOB SHADERS "${CMAKE_CURRENT_SOURCE_DIR}/DB/shaders/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/DB/shaders/*.hpp")
-source_group(DB\\SHADERS FILES ${SHADERS})
-
-# 筛选器--IO
-FILE(GLOB IO "${CMAKE_CURRENT_SOURCE_DIR}/DB/io/*.cpp"  "${CMAKE_CURRENT_SOURCE_DIR}/DB/io/.h")
-source_group(DB\\IO FILES ${IO})
-
-# 筛选器--render
-FILE(GLOB RENDER "${CMAKE_CURRENT_SOURCE_DIR}/DB/render/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/DB/render/.h")
-source_group(DB\\RENDER FILES ${RENDER})
-
-# 筛选器--sys
-FILE(GLOB SYS  "${CMAKE_CURRENT_SOURCE_DIR}/DB/sys/*.cpp"  "${CMAKE_CURRENT_SOURCE_DIR}/DB/sys/.h")
-source_group(DB\\SYS FILES ${SYS})
-
-# 筛选器--gui
-FILE(GLOB GUI 
- ${CMAKE_CURRENT_SOURCE_DIR}/UI/gui/se.h
- ${CMAKE_CURRENT_SOURCE_DIR}/UI/gui/se.cpp
- ${CMAKE_CURRENT_SOURCE_DIR}/UI/gui/gui_librarywidget.h
- ${CMAKE_CURRENT_SOURCE_DIR}/UI/gui/gui_librarywidget.cpp)
-
-source_group(UI\\GUI FILES ${GUI})
 
 #-----------------------------------------------------------------------------
 # 头文件搜索路径
@@ -79,12 +34,11 @@ source_group(UI\\GUI FILES ${GUI})
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-include_directories(${PROJECT_SOURCE_DIR}/Alice/Bootstrap/AliceLaunchCore/Public)
+include_directories(${PROJECT_SOURCE_DIR}/Alice/Bootstrap/Interface/AliceLaunchInterface/Public)
 include_directories(${PROJECT_SOURCE_DIR}/Alice/Core/Foundation/AliceBasicTool/Public)
 include_directories(${PROJECT_SOURCE_DIR}/Alice/AliceCommonApplication/Public)
 include_directories(${PROJECT_SOURCE_DIR}/Alice/InteractionLayer/Interface/AliceApplicationInterface/Public)
-include_directories(${PROJECT_SOURCE_DIR}/QFrameWork/AliceUiFrameWork)
-include_directories(${PROJECT_SOURCE_DIR}/QFrameWork/AliceUiFrameWork/Public)
+
 
 #-----------------------------------------------------------------------------
 # 自动添加include目录
@@ -172,9 +126,7 @@ link_libraries(AliceCoreApplicationInterface.lib)
 link_libraries(AliceUiFrameWork.lib)
 link_libraries(AliceBasicTool.lib)
 link_libraries(AliceComponentSystem.lib)
-link_libraries(AliceLaunchCore.lib)
-
-
+link_libraries(AliceLaunchInterface.lib)
 #-----------------------------------------------------------------------------
 # QRC文件打包及前处理命令
 #-----------------------------------------------------------------------------
@@ -203,18 +155,6 @@ add_executable(${PROJECT_NAME}
  ${SOURCE_CPP_FILES}
  ${HEADER_H_FILES}
  ${HEADER_HPP_FILES}
- ${RESOURCE_QRC_FILES}
- ${RESOURCE_QML_FILES}
- ${RESOURCE_UI_FILES}
- ${RESOURCE_PRO_FILES}
- ${RESOURCE_XML_FILES}
- ${COMMONS}
- ${GUI}
- ${IO}
- ${MATHS}
- ${RENDER}
- ${SHADERS}
- ${SYS}
  ${APP_FILES})
 
  # 定义：如何生成 .rcc

@@ -8,7 +8,7 @@ message("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Start Designer/UI~~~~~~~~~~~~~~~~~
 message("产品Designer-UI dir is: ")
 message("${PROJECT_SOURCE_DIR}")
 add_subdirectory(SolidDesignerUI)
-
+add_subdirectory(SolidDesignerCommand)
 message("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~End Designer/UI~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 

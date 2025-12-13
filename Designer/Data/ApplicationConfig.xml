@@ -2,7 +2,8 @@
 <ApplicationConfig version="1.0" product="SolidDesigner">
   <!-- commands config file -->
   <Include href="CommandsConfig.xml"/>
-  
+  <!-- ProductInfo config file -->
+  <Include href="ProductInfoConfig.xml"/>
   <Features>
     <Flag name="NewUI" enabled="true"/>
     <Flag name="GpuTess" enabled="false"/>

@@ -1,0 +1,2 @@
+#include "SolidFileOpenCommand.h"
+

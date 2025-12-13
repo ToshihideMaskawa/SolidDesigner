@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProductInfoConfig version="1.0">
+  <Product Name="SolidDesigner" Company="Alice Software" Code="SolidDesigner" Edition="Enterprise" />
+
+  <Version Major="1" Minor="0" Patch="0" Build="100" Tag="dev" />
+
+  <Build Date="2025-12-10" Id="commit-abcdef1234567890" />
+  
+  <Paths InstallRoot="C:\Program Files\SolidDesigner" ResourceRoot="C:\Program Files\SolidDesigner\resources" />
+  
+</ProductInfoConfig>
