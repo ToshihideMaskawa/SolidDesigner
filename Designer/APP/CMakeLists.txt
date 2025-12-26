@@ -72,7 +72,7 @@ if(WIN32)
     include_directories(${QTDIR}/include/QtQuick)
     include_directories(${QTDIR}/include/QtQml)
     include_directories(${QTDIR}/include/QtNetwork)
-    include_directories(${QTDIR}/mkspecs/win32-msvc2012)
+    include_directories(${QTDIR}/mkspecs/win32-msvc)
 
     #-----------------------------------------------------------------------------
     # 添加需要链接的库文件目录LINK_DIRECTORIES
