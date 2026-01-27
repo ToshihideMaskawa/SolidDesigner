@@ -41,6 +41,7 @@
       <DockPanels>
         <Panel id="panel.modeltree"/>
         <Panel id="panel.properties"/>
+        <Panel id="panel.codeEditor"/>
       </DockPanels>
       <InitialViews>
         <ViewKind id="view.model3d"/>
@@ -84,6 +85,7 @@
       <DockPanels>
         <Panel id="panel.drawingtree"/>
         <Panel id="panel.properties"/>
+        <Panel id="panel.codeEditor"/>
       </DockPanels>
       <InitialViews>
         <ViewKind id="view.drawing"/>
@@ -116,6 +118,7 @@
       <DockPanels>
         <Panel id="panel.debugtree"/>
         <Panel id="panel.properties"/>
+        <Panel id="panel.codeEditor"/>
       </DockPanels>
       <InitialViews>
         <ViewKind id="view.debug"/>
